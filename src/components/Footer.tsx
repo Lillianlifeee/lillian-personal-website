@@ -1,8 +1,12 @@
 import React from 'react';
-import { Heart, Linkedin, Mail, Phone } from 'lucide-react';
+import { Linkedin, Mail, Phone } from 'lucide-react';
 import VisitorCounter from './VisitorCounter';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate: (sectionKey: string) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-6">
@@ -30,21 +34,36 @@ const Footer: React.FC = () => {
           <div className="text-center">
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <div className="space-y-2">
-              <a href="#education" className="block text-gray-400 hover:text-white transition-colors text-sm">
+              <button 
+                onClick={() => onNavigate('education')} 
+                className="block w-full text-center text-gray-400 hover:text-white transition-colors text-sm"
+              >
                 Education
-              </a>
-              <a href="#experience" className="block text-gray-400 hover:text-white transition-colors text-sm">
+              </button>
+              <button 
+                onClick={() => onNavigate('experience')} 
+                className="block w-full text-center text-gray-400 hover:text-white transition-colors text-sm"
+              >
                 Experience
-              </a>
-              <a href="#projects" className="block text-gray-400 hover:text-white transition-colors text-sm">
+              </button>
+              <button 
+                onClick={() => onNavigate('projects')} 
+                className="block w-full text-center text-gray-400 hover:text-white transition-colors text-sm"
+              >
                 Research & Projects
-              </a>
-              <a href="#achievements" className="block text-gray-400 hover:text-white transition-colors text-sm">
+              </button>
+              <button 
+                onClick={() => onNavigate('achievements')} 
+                className="block w-full text-center text-gray-400 hover:text-white transition-colors text-sm"
+              >
                 Achievements
-              </a>
-              <a href="#skills" className="block text-gray-400 hover:text-white transition-colors text-sm">
+              </button>
+              <button 
+                onClick={() => onNavigate('skills')} 
+                className="block w-full text-center text-gray-400 hover:text-white transition-colors text-sm"
+              >
                 Skills
-              </a>
+              </button>
             </div>
           </div>
           
@@ -53,7 +72,7 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="space-y-2">
               <a 
-                href="https://www.linkedin.com/in/ye-lillian-he" 
+                href="https://www.linkedin.com/in/ye-lillian-he/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center md:justify-end text-gray-400 hover:text-white transition-colors text-sm"
@@ -68,10 +87,6 @@ const Footer: React.FC = () => {
                 <Phone size={16} className="mr-2" />
                 +852 8480-8223
               </a>
-              <div className="flex items-center justify-center md:justify-end text-gray-400 text-sm">
-                <Mail size={16} className="mr-2" />
-                Available via LinkedIn
-              </div>
             </div>
           </div>
         </div>
@@ -83,17 +98,11 @@ const Footer: React.FC = () => {
             <VisitorCounter />
           </div>
           
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-gray-400 text-sm text-center md:text-left">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+            <div className="text-gray-400 text-sm text-center">
               <p>
                 © 2025 Lillian He. All rights reserved.
               </p>
-            </div>
-            
-            <div className="flex items-center text-gray-400 text-sm">
-              <span>Made with</span>
-              <Heart className="mx-1 text-red-400" size={14} fill="currentColor" />
-              <span>by MiniMax Agent</span>
             </div>
           </div>
           

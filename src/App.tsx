@@ -33,6 +33,41 @@ function App() {
     }));
   };
 
+  const smartScrollToSection = (sectionKey: string) => {
+    // If it's home, scroll to hero section
+    if (sectionKey === 'home' || sectionKey === 'hero') {
+      const element = document.getElementById('hero');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+
+    // First ensure main is expanded
+    if (!isMainExpanded) {
+      setIsMainExpanded(true);
+    }
+
+    // Check if the section is collapsed
+    const isCurrentlyExpanded = sectionStates[sectionKey as keyof typeof sectionStates];
+    
+    if (!isCurrentlyExpanded) {
+      // Expand the section first
+      setSectionStates(prev => ({
+        ...prev,
+        [sectionKey]: true
+      }));
+    }
+
+    // Wait a bit for the animation to complete, then scroll
+    setTimeout(() => {
+      const element = document.getElementById(sectionKey);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, isCurrentlyExpanded ? 0 : 300); // No delay if already expanded
+  };
+
   const SectionWrapper = ({ 
     title, 
     sectionKey, 
@@ -47,7 +82,7 @@ function App() {
     const isExpanded = sectionStates[sectionKey];
     
     return (
-      <div className={`${bgColor} border-b border-gray-200`}>
+      <div id={sectionKey} className={`${bgColor} border-b border-gray-200`}>
         <div 
           className="cursor-pointer py-8 px-8 hover:bg-gradient-to-r hover:from-gray-50 hover:to-blue-50 transition-all duration-300 border-l-4 border-transparent hover:border-blue-400"
           onClick={() => toggleSection(sectionKey)}
@@ -77,7 +112,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header onNavigate={smartScrollToSection} />
       <main>
         <Hero onExpand={handleMainExpand} isExpanded={isMainExpanded} />
         {isMainExpanded && (
@@ -108,7 +143,7 @@ function App() {
           </div>
         )}
       </main>
-      <Footer />
+      <Footer onNavigate={smartScrollToSection} />
     </div>
   );
 }

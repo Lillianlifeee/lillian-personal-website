@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onNavigate: (sectionKey: string) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleNavigation = (sectionKey: string) => {
+    onNavigate(sectionKey);
     setIsMenuOpen(false);
   };
 
@@ -35,43 +36,43 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <button
-              onClick={() => scrollToSection('hero')}
+              onClick={() => handleNavigation('home')}
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
               Home
             </button>
             <button
-              onClick={() => scrollToSection('education')}
+              onClick={() => handleNavigation('education')}
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
               Education
             </button>
             <button
-              onClick={() => scrollToSection('experience')}
+              onClick={() => handleNavigation('experience')}
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
               Experience
             </button>
             <button
-              onClick={() => scrollToSection('projects')}
+              onClick={() => handleNavigation('projects')}
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
               Projects
             </button>
             <button
-              onClick={() => scrollToSection('achievements')}
+              onClick={() => handleNavigation('achievements')}
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
               Achievements
             </button>
             <button
-              onClick={() => scrollToSection('skills')}
+              onClick={() => handleNavigation('skills')}
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
               Skills
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => handleNavigation('contact')}
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
               Contact
@@ -93,43 +94,43 @@ const Header: React.FC = () => {
           <div className="md:hidden mt-4 pb-4">
             <div className="flex flex-col space-y-2">
               <button
-                onClick={() => scrollToSection('hero')}
+                onClick={() => handleNavigation('home')}
                 className="text-left py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Home
               </button>
               <button
-                onClick={() => scrollToSection('education')}
+                onClick={() => handleNavigation('education')}
                 className="text-left py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Education
               </button>
               <button
-                onClick={() => scrollToSection('experience')}
+                onClick={() => handleNavigation('experience')}
                 className="text-left py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Experience
               </button>
               <button
-                onClick={() => scrollToSection('projects')}
+                onClick={() => handleNavigation('projects')}
                 className="text-left py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Projects
               </button>
               <button
-                onClick={() => scrollToSection('achievements')}
+                onClick={() => handleNavigation('achievements')}
                 className="text-left py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Achievements
               </button>
               <button
-                onClick={() => scrollToSection('skills')}
+                onClick={() => handleNavigation('skills')}
                 className="text-left py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Skills
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleNavigation('contact')}
                 className="text-left py-2 mt-2 bg-blue-600 text-white px-4 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Contact

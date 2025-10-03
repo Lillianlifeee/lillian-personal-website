@@ -35,8 +35,8 @@ const Education: React.FC = () => {
       location: "Nanjing",
       gpa: "Full Score: 45/45",
       achievements: [
-        "担任了学生会纪检部执委",
-        "担任了排球社社长"
+        "Disciplinary representative of the Student Union",
+        "President of the volleyball club"
       ],
       highlight: true
     }
