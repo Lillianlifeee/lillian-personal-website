@@ -56,7 +56,13 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 onClick={() => onNavigate('achievements')} 
                 className="block w-full text-center text-gray-400 hover:text-white transition-colors text-sm"
               >
-                Achievements
+                Extracurricular Activities
+              </button>
+              <button 
+                onClick={() => onNavigate('certifications')} 
+                className="block w-full text-center text-gray-400 hover:text-white transition-colors text-sm"
+              >
+                Certifications
               </button>
               <button 
                 onClick={() => onNavigate('skills')} 
