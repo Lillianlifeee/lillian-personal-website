@@ -6,6 +6,7 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
+import Certifications from './components/Certifications';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -18,6 +19,7 @@ function App() {
     experience: false,
     projects: false,
     achievements: false,
+    certifications: false,
     skills: false,
     contact: false
   });
@@ -129,11 +131,15 @@ function App() {
               <Projects />
             </SectionWrapper>
             
-            <SectionWrapper title="Achievements" sectionKey="achievements" bgColor="bg-white">
+            <SectionWrapper title="Extracurricular Activities" sectionKey="achievements" bgColor="bg-white">
               <Achievements />
             </SectionWrapper>
             
-            <SectionWrapper title="Skills & Interests" sectionKey="skills" bgColor="bg-gradient-to-br from-slate-50 to-blue-50">
+            <SectionWrapper title="Certifications" sectionKey="certifications" bgColor="bg-gradient-to-br from-slate-50 to-blue-50">
+              <Certifications />
+            </SectionWrapper>
+            
+            <SectionWrapper title="Skills & Interests" sectionKey="skills" bgColor="bg-white">
               <Skills />
             </SectionWrapper>
             
