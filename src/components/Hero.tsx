@@ -83,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ onExpand, isExpanded }) => {
             
             <div className="flex flex-wrap justify-center gap-4">
               <div className="bg-yellow-500/20 backdrop-blur-sm px-4 py-2 rounded-full border border-yellow-300/30">
-                <span className="text-sm font-medium text-yellow-200">ACCA Competition Champion</span>
+                <span className="text-sm font-medium text-yellow-200">CFA Program Level I</span>
               </div>
 
               <div className="bg-yellow-500/20 backdrop-blur-sm px-4 py-2 rounded-full border border-yellow-300/30">
