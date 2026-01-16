@@ -4,6 +4,21 @@ import { Briefcase, MapPin, CalendarDays, TrendingUp, Users, Database, Calculato
 const Experience: React.FC = () => {
   const experiences = [
     {
+      company: "Neuberger Berman",
+      logo: null,
+      position: "Private Equity Intern",
+      period: "Sep 2025 - Jan 2026",
+      location: "Hong Kong",
+      type: "Private Equity",
+      responsibilities: [
+        "Contributed to the privatization of TechnoPro (6028.T) through supporting co-investment analysis, including return assessment using LBO frameworks, value chain analysis, and investment due diligence. The transaction was successfully closed in December 2025 with a deal size of approximately USD 3.5 billion",
+        "Delivered a 30-page report in PPT format on the China market. Used Bloomberg and CapitalIQ and sourced macro-economic data (such as GDP, M2, PMI), 10+ iconic capital market deals, and key sector analysis (consumer, AI, and supply chain)",
+        "Analyzed and compared 5 primary funds using quantitative performance metrics (IRR, DPI, TVPI) and qualitative deal analysis, supporting senior management in selecting top-performing GPs"
+      ],
+      skills: ["LBO Modeling", "Due Diligence", "Bloomberg & CapitalIQ", "Fund Analysis"],
+      highlight: true
+    },
+    {
       company: "Goldman Sachs",
       logo: "/images/goldman_sachs_logo.png",
       position: "Summer Legal Entity Control Intern",
@@ -80,6 +95,7 @@ const Experience: React.FC = () => {
 
   const getTypeColor = (type: string) => {
     switch (type) {
+      case 'Private Equity': return 'bg-rose-100 text-rose-800';
       case 'Investment Banking': return 'bg-blue-100 text-blue-800';
       case 'Asset Management': return 'bg-green-100 text-green-800';
       case 'Banking': return 'bg-purple-100 text-purple-800';
