@@ -5,7 +5,7 @@ const Experience: React.FC = () => {
   const experiences = [
     {
       company: "Neuberger Berman",
-      logo: null,
+      logo: "/images/neuberger_berman_logo.png",
       position: "Private Equity Intern",
       period: "Sep 2025 - Jan 2026",
       location: "Hong Kong",
